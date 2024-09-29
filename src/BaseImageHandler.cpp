@@ -3,12 +3,17 @@
 #include "BaseImageHandler.h"
 #endif
 
-ImageHandler::ImageHandler(unsigned char* arr)
+#ifndef INCLUDE_IMAGE
+#define INCLUDE_IMAGE
+#include "Image.h"
+#endif
+
+ImageHandler::ImageHandler(Image img)
 {
-    this -> arr = arr;
+    this -> img = img;
 }
 
-void ImageHandler::captureImage(unsigned char* arr, int width, int height) {
+void ImageHandler::captureImage(Image img) {
     // Default or empty implementation
 }
 

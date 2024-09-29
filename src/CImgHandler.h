@@ -3,6 +3,11 @@
 #include "BaseImageHandler.h"
 #endif
 
+#ifndef INCLUDE_IMAGE
+#define INCLUDE_IMAGE
+#include "Image.h"
+#endif
+
 #ifndef CIMG_HANDLER
 #define CIMG_HANDLER
 #include "/home/toor/screenshot/CImg/CImg.h"
@@ -10,7 +15,8 @@
 class CImgHandler : public ImageHandler{
     public:
     cimg_library::CImg<unsigned char> pic;
-    int x, y;
+    Image img;
+    int x, y, width, height, lengthOfArr;
     unsigned char* arr;
 
     /**
@@ -24,9 +30,9 @@ class CImgHandler : public ImageHandler{
     * @return sum of `values`, or 0.0 if `values` is empty.
     */
 
-    CImgHandler(unsigned char *arr, int height, int width, int x, int y);
-    void captureImage (unsigned char* arr, int height, int width) override;
-    void registerPixel(unsigned long pixel, int x, int y);
+    CImgHandler(Image img, int x, int y);
+    void captureImage (Image img) override;
+    void registerPixel(unsigned char* arr, int x, int y);
     void saveImage(const char* filepath) override;
 };
 
