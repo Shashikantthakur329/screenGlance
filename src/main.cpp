@@ -29,6 +29,6 @@ int main()
     pic.saveImage("asd.png");
 
 }
-
+// g++ drawRectangle.cpp -lX11 -o drawRectangle $(pkg-config --libs --cflags cairo)
 
 // g++ main.cpp X11ImageGrabber.cpp CImgHandler.cpp BaseGrabber.cpp BaseImageHandler.cpp Image.cpp Rectangle.cpp ./helper/SelectArea.cpp -lX11 -I/home/toor/screenshot/CImg -o main
