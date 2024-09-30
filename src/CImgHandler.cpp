@@ -13,7 +13,7 @@
 
 #include "CImgHandler.h"
 
-CImgHandler::CImgHandler(Image img, int x = 1, int y = 3):ImageHandler(img)
+CImgHandler::CImgHandler(Image img, int x, int y):ImageHandler(img)
 {
     this -> pic = cimg_library::CImg<unsigned char>(img.arr, img.width, img.height, x, y);
     this -> arr = arr;
@@ -27,9 +27,6 @@ CImgHandler::CImgHandler(Image img, int x = 1, int y = 3):ImageHandler(img)
 
 void CImgHandler :: captureImage(Image img){
     int len = img.width * img.height;
-    // std::cout<<this->width <<" "<<width<<std::endl;
-    // std::cout<<this -> height << " "<<height<<std::endl;
-    // std::cout<<this -> lengthOfArr<<" "<<len<<std::endl;
 
     ASSERT(this -> lengthOfArr == len , \
     "Length of provided array(arr) is not equal to initialized image array");

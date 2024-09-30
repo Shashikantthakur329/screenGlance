@@ -1,7 +1,8 @@
 #include "X11ImageGrabber.h"
 #include "/home/toor/screenshot/CImg/CImg.h"
-#include "CImgHandler.h"
+// #include "CImgHandler.h"
 #include "BaseImageHandler.h"
+#include <math.h>
 
 using namespace cimg_library;
 Image X11ImageGrabber::capture(double x1, double y1, double x2, double y2)    
@@ -13,18 +14,21 @@ Image X11ImageGrabber::capture(double x1, double y1, double x2, double y2)
     XGetWindowAttributes(display, root, &gwa);
     int width = gwa.width;
     int height = gwa.height;
+    XImage *image = XGetImage(display, root, 0, 0,width, height, AllPlanes, ZPixmap);
 
-    XImage *image = XGetImage(display, root, 0,0,width, height, AllPlanes, ZPixmap);
-
+    width = abs(x2 - x1); height = abs(y2 - y1);
     unsigned char *array = new unsigned char[width * height * 3];
 
     // CImgHandler pic(array,width,height,1,3);
     // pic.captureImage(array,width,height);
 
+    x1 = std::min(x1, x2); x2 = std::max(x1, x2);
+    y1 = std::min(y1, y2); y2 = std::max(y1, y2);
+    
     int i = 0;
-    for (int x = 0; x < width; x++)
+    for (int x = x1; x < x2; x++)
     {
-      for (int y = 0; y < height ; y++)
+      for (int y = y1; y < y2 ; y++)
       {
         unsigned long pixel = XGetPixel(image,x,y);
         // pic.registerPixel(pixel, x, y);

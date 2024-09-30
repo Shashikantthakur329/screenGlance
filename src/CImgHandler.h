@@ -30,7 +30,7 @@ class CImgHandler : public ImageHandler{
     * @return sum of `values`, or 0.0 if `values` is empty.
     */
 
-    CImgHandler(Image img, int x, int y);
+    CImgHandler(Image img, int x = 1, int y = 3);
     void captureImage (Image img) override;
     void registerPixel(unsigned char* arr, int x, int y);
     void saveImage(const char* filepath) override;
