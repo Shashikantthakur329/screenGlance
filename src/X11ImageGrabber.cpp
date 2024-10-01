@@ -19,9 +19,6 @@ Image X11ImageGrabber::capture(double x1, double y1, double x2, double y2)
     width = abs(x2 - x1); height = abs(y2 - y1);
     unsigned char *array = new unsigned char[width * height * 3];
 
-    // CImgHandler pic(array,width,height,1,3);
-    // pic.captureImage(array,width,height);
-
     x1 = std::min(x1, x2); x2 = std::max(x1, x2);
     y1 = std::min(y1, y2); y2 = std::max(y1, y2);
     
@@ -31,7 +28,6 @@ Image X11ImageGrabber::capture(double x1, double y1, double x2, double y2)
       for (int y = y1; y < y2 ; y++)
       {
         unsigned long pixel = XGetPixel(image,x,y);
-        // pic.registerPixel(pixel, x, y);
 
         array[i * 3 + 0] = ((pixel >> 16) & (255));
         array[i * 3 + 1] = ((pixel >> 8) & (255));
@@ -42,8 +38,7 @@ Image X11ImageGrabber::capture(double x1, double y1, double x2, double y2)
         // pic(x,y,2) = ((pixel) & (255));
       }
     }
-    // pic.captureImage(array,width,height);
-    // pic.saveImage("blah.png");
+
     Image img = Image(array, width, height);
     return img;
 }

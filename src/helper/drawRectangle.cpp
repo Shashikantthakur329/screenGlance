@@ -21,6 +21,7 @@ void draw(cairo_t *cr, int x1, int y1, int x2, int y2) {
 int abs(int x){
     return (x < 0 ? -1 * x : x);
 }
+
 int drawRect(int x1, int x2, int x3, int x4) {
     Display *d = XOpenDisplay(NULL);
     Window root = DefaultRootWindow(d);

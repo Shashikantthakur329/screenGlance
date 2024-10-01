@@ -83,7 +83,7 @@ while (1) {
                         case Button1: // Left click release
                             xr = event.xbutton.x;
                             yr = event.xbutton.y;
-                            printf("Released at %d %d \n", xr, yr);
+                            // printf("Released at %d %d \n", xr, yr);
                             buttonR = Button1;
                             break;
 
@@ -107,8 +107,6 @@ while (1) {
         }
     }
     Rectangle r(xp, yp, xr, yr);
-    // printf("Left click at %d %d \n", xp, yp);
-    // printf("Released at %d %d \n", xr, yr);
 
     // Close the X display connection
     XCloseDisplay(display);
