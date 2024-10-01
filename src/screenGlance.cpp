@@ -9,6 +9,7 @@
 screenGlance::screenGlance(const char* str){
     this -> filename = str;
 }
+
 int screenGlance::takeScreenshot()
 {
     SelectArea a; 

@@ -15,7 +15,7 @@
 
 int main()
 {
-    const char* output = "screenCap.png";
+    const char* output = "../screenCap.png";
     screenGlance s(output);
     s.takeScreenshot();
 }
