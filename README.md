@@ -1,4 +1,4 @@
-# FLOCKING BIRDS
+# SCREENGLANCE
 ![SCREENGLANCE](./images/demo.gif)
 
 ## Overview 
@@ -19,7 +19,7 @@ CImg library\
 cairo library
 
 ## Class Diagram
-![Class Diagram](./images/demo.gif)
+![Class Diagram](./images/class_diagram.png)
 
 ## Getting Started
 * Clone the repository:
@@ -32,6 +32,7 @@ git clone https://github.com/Shashikantthakur329/screenGlance.git
 
 * Run the executable.
 
+* After running the executable, select a rectangular region in your screen.
 
 ## Controls
 * Use the AreaSelector to define a rectangular region on the screen.
